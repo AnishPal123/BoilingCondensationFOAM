@@ -23,8 +23,8 @@ constantCoeffs
     coeffC	133; //133 5e5
   
     Tact           335.15; //5 degree superheat
-    betaL          1.361e-3;
-    betav          3.02e-3;
+    betaL          1.361e-3; // coefficient expansion of liquid
+    betav          3.02e-3; // coefficient expansion of vapor
   
 }
 
