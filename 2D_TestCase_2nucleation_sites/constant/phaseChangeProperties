@@ -19,8 +19,8 @@ phaseChangeTwoPhaseModel constant;//ZwartExtended;
 constantCoeffs
 {
     
-    coeffE      1;//0.1;
-    coeffC	133; //133 5e5
+    coeffE      1;//0.1; //evaporation coefficient
+    coeffC	133; //133 5e5 // condensation coefficient
   
     Tact           335.15; //5 degree superheat
     betaL          1.361e-3; // coefficient expansion of liquid
