@@ -18,19 +18,14 @@ phaseChangeTwoPhaseModel constant;//ZwartExtended;
 
 constantCoeffs
 {
-    Cc          0;//0.04;
-    Cv          0;//0.04;
+    
     coeffE      1;//0.1;
     coeffC	133; //133 5e5
-    n             1.6e+10; // required for cavitation only, so not here. 
-    dNuc          2.0e-06; // required for cavitation only, so not here. 
-    PSat	   1e5;
+  
     Tact           335.15; //5 degree superheat
     betaL          1.361e-3;
     betav          3.02e-3;
-    //rNuc        1e-06;
-    //tG          5e-03;
-    //TInf        363;
+  
 }
 
 
