@@ -1,0 +1,40 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\    /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\  /   O peration     | Version:  v2312                                 |
+|   \\/    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format    ascii;
+    class    dictionary;
+    object    setFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+defaultFieldValues
+(
+     volScalarFieldValue CoeffC 0.1    // Default value for CoeffC
+    volScalarFieldValue CoeffE 0.1 // Default value for CoeffE
+);
+
+regions
+(
+    // Set cell values (does zerogradient on boundaries)
+    boxToCell
+   {
+        name boxRegion;                // Name of the region
+        type boxToCell;                // Type of region (cells inside a box)
+        box (-100 -100 -100) (0.008 100 100);  // Coordinates defining the box (min and max)
+
+        fieldValues
+        (
+            volScalarFieldValue CoeffC 0.1  // Set CoeffC to 1500 in this region
+            volScalarFieldValue CoeffE 0.1   // Set CoeffE to 750 in this region
+        );
+    }
+);
+
+// ************************************************************************* //

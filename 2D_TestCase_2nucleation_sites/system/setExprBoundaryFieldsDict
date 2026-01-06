@@ -1,0 +1,36 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      setExprBoundaryFieldsDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+pattern
+{
+    field   alpha.liquid;
+
+    expressions
+    (
+        {
+            patch   bottom;
+            target  something;
+                        expression #{ ( (pos().x >= 0.0011 && pos().x <= 0.0012) || (pos().x >= 0.0031 && pos().x <= 0.0032) || (pos().x >= 0.0051 && pos().x <= 0.0052) || (pos().x >= 0.0071 && pos().x <= 0.0072) ) ? 0 : 1 #};
+        }
+
+      
+    );
+    
+}
+
+
+
+// ************************************************************************* //

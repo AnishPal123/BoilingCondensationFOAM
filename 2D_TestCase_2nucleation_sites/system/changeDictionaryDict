@@ -1,0 +1,93 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      changeDictionaryDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+boundary
+{
+    bottom
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    
+    bottom_nucleation
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+  }
+
+    /*patchA
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    
+    patchB
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+
+    patchC
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }
+    
+    patchD
+    {
+        type            mappedWall;
+        sampleMode      nearestPatchFace;
+        samplePatch     top;
+        sampleRegion    baffle3DRegion_bottom;
+        coupleGroup     bottom_heated_baffle;
+
+        offsetMode      uniform;
+        offset          (0 0 0);
+    }*/
+}
+
+
+// ************************************************************************* //

@@ -1,0 +1,51 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+
+    {
+       name            surface1;
+        type            cellSet; // pointSet;
+        action          new;
+        source          surfaceToCell; // surfaceToPoint;
+        file            "constant/triSurface/geom.stl";
+        outsidePoints   ((0.025 0.01 0.0002));
+        includeCut      true;
+        includeInside   true;
+        includeOutside  false;
+         nearDistance   0.5;
+          curvature       1;
+          useSurfaceOrientation false;
+     }
+ 
+ 
+ {
+    // Mandatory (inherited) entries
+    name        surfaceZone;
+    type        cellZoneSet;
+    action      new;
+
+    // Mandatory entries
+    source      setToCellZone;
+    set         surface1;
+}
+    
+   
+);
+
+
+// ************************************************************************* //

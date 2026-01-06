@@ -1,0 +1,107 @@
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+
+// Select 4 nucleation zones (small boxes) along x at y=0
+
+actions
+(
+    {
+        name    nuc_Q1;
+        type    faceSet;
+        action  new;
+        source  cylinderToFace;
+        sourceInfo
+        {
+            p1  (0.005 -100 0.005);
+            p2  (0.005 25e-6 0.005);
+            radius 500e-6;
+        }
+    }
+
+    /*
+    {
+        name    nuc_Q1;
+        type    faceSet;
+        action  add;
+        source  cylinderToFace;
+        sourceInfo
+        {
+            p1  (0.00184 -100 0.00036 );
+            p2  (0.00184 25e-6 0.00036 );
+            radius 100e-6;
+        }
+    }
+
+    {
+        name    nuc_Q1;
+        type    faceSet;
+        action  add;
+        source  cylinderToFace;
+        sourceInfo
+        {
+            p1  (0.00930 -100 0.00270 );
+            p2  (0.00930 25e-6 0.00270 );
+            radius 100e-6;
+        }
+    }
+
+    {
+        name    nuc_Q1;
+        type    faceSet;
+        action  add;
+        source  cylinderToFace;
+        sourceInfo
+        {
+            p1  (0.00048 -100 0.00878 );
+            p2  (0.00048 25e-6 0.00878 );
+            radius 100e-6;
+        }
+    }
+
+{
+        name    nuc_Q1;
+        type    faceSet;
+        action  add;
+        source  cylinderToFace;
+        sourceInfo
+        {
+            p1  (0.00452 -100 0.00276);
+            p2  (0.00452 25e-6 0.00276);
+            radius 100e-6;
+        }
+    }
+    */
+
+/*
+// Pconvert faceSet to faceZone
+    {
+        name nuc_Q1;
+        type faceZoneSet;
+        action new;
+        source setToFaceZone;
+        sourceInfo
+        {
+            faceSet nuc_Q1;
+        }
+    }*/
+
+
+   
+);
+
+// ************************************************************************* //

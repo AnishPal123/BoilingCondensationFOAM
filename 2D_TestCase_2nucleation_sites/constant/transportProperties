@@ -1,0 +1,50 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      transportProperties;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+phases          (liquid vapour); // FC72 at 57 °C
+
+sigma           0.01;  // N/m, surface tension of FC72 at 57 °C
+
+liquid
+{
+    transportModel  Newtonian;
+    nu              3.81e-7;   // 2.64e-7      // m²/s (μ = 0.64 mPa·s, ρ = 1680 kg/m³)
+    rho             1680;      //1583     // kg/m³ (saturated liquid at 57 °C)
+
+    Cp              1100;          // J/kg·K (liquid FC72 at 57 °C, 3M)
+    Cv              1100;   // assume Cp for liquid
+    
+    //Cv              945.86;           // J/kg·K (approximate, incompressible liquid)
+    kappa           0.057;           // W/m·K (thermal conductivity at 57 °C)
+    hf              0;               // Reference enthalpy
+}
+
+vapour
+{
+    transportModel  Newtonian;
+    nu              0.93e-6;   // 5e-7      // m²/s (μ = 11.7e-6 Pa·s, ρ = 12.53 kg/m³)
+    rho             12.6;      //14.9     // kg/m³ (saturated FC 72 at 57 °C, 1 atm)
+
+    Cp              896.4;          // J/kg·K (saturated FC 72)
+    Cv              871.79;          //  cp =cv -R used as pressure less than critical
+    kappa           0.01;           // W/m·K (steam at 57 °C)
+    hf              93e3;         // J/kg (latent heat of vaporization at 100 °C)
+}
+
+Prt             0.7;
+
+// ************************************************************************* //
+

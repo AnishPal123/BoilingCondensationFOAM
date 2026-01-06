@@ -1,0 +1,62 @@
+/*--------------------------------*- C++ -*----------------------------------*\
+| =========                 |                                                 |
+| \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
+|  \\    /   O peration     | Version:  v2312                                 |
+|   \\  /    A nd           | Website:  www.openfoam.com                      |
+|    \\/     M anipulation  |                                                 |
+\*---------------------------------------------------------------------------*/
+FoamFile
+{
+    version     2.0;
+    format      ascii;
+    class       dictionary;
+    object      topoSetDict;
+}
+// * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
+
+actions
+(
+    // Patch 1
+    {
+        name bottom_nucleation;
+        type faceSet;
+        action new;
+        source cylinderToFace;
+        sourceInfo
+        {
+            p1 (0.00200012345 -100 0);   // random digits added beside the decimal points to make it select only 1 cell since the point is on a mesh boundary . 
+            p2 (0.00200012345 5e-6 0);
+            radius 200e-6;
+        }
+    }
+    
+   
+    // Patch 3
+    {
+        name bottom_nucleation;
+        type faceSet;
+        action add;
+        source cylinderToFace;
+        sourceInfo
+        {
+            p1 (0.00800012345 -100 0);   // random digits added beside the decimal points to make it select only 1 cell since the point is on a mesh boundary . 
+            p2 (0.00800012345 5e-6 0);
+            radius 200e-6;
+        }
+    }
+
+   
+
+    // Convert to faceZone
+    {
+        name bottom_nucleation;
+        type faceZoneSet;
+        action new;
+        source setToFaceZone;
+        sourceInfo
+        {
+            faceSet bottom_nucleation;
+        }
+    }
+);
+
