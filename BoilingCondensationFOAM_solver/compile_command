@@ -1,8 +1,0 @@
-./Allwclean
-cd temperaturePhaseChangeTwoPhaseMixtures
-wclean
-wmake
-cd ..
-./Allwmake
-
-#------------------------------------------------------------------------------
